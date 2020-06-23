@@ -15,7 +15,3 @@ data class Organization private constructor(val id: UUID, val name: String) {
         return id.toString()
     }
 }
-
-
-
-

@@ -8,7 +8,7 @@ import org.junit.jupiter.api.assertThrows
 class OrganizationTest {
 
     @Test
-    fun `creates organization with valid inputs`(){
+    fun `creates organization with valid inputs`() {
         val organizationName = "Microsoft"
         val organization = Organization(name = organizationName)
         organization.name shouldBe organizationName
@@ -22,9 +22,8 @@ class OrganizationTest {
     }
 
     @Test
-    fun `fails to create organization if name is null`(){
+    fun `fails to create organization if name is null`() {
         val exception = assertThrows<Exception> { Organization(name = null) }
         exception.message shouldBe "Organization name cannot be null or empty"
     }
-
 }

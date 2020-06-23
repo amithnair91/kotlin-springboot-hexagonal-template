@@ -7,5 +7,5 @@ import org.springframework.boot.runApplication
 class HexagonalTemplateApplication
 
 fun main(args: Array<String>) {
-	runApplication<HexagonalTemplateApplication>(*args)
+    runApplication<HexagonalTemplateApplication>(*args)
 }
