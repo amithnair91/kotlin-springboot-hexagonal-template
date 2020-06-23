@@ -2,6 +2,7 @@ package com.amithnair.hexagonaltemplate.domain
 
 import io.kotlintest.matchers.numerics.shouldBeGreaterThan
 import io.kotlintest.shouldBe
+import io.kotlintest.shouldNotBe
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 
@@ -13,6 +14,8 @@ class OrganizationTest {
         val organization = Organization(name = organizationName)
         organization.name shouldBe organizationName
         organization.id().length shouldBeGreaterThan 0
+        organization.created shouldNotBe null
+        organization.updated shouldNotBe null
     }
 
     @Test
