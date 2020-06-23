@@ -20,15 +20,28 @@ repositories {
 extra["springCloudVersion"] = "2020.0.0-SNAPSHOT"
 
 dependencies {
-	implementation("org.springframework.boot:spring-boot-starter-data-mongodb-reactive")
-	implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
+	// Kotlin dependency
+	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+	implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
+
+	// Kotlin reactor dependency
 	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
-	implementation("org.springframework.cloud:spring-cloud-stream")
+
+	// Spring dependency
+	implementation("org.springframework.boot:spring-boot-starter-actuator")
+	implementation("org.springframework.boot:spring-boot-starter-data-mongodb-reactive")
+
+	// Spring Test dependencies
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
-	testImplementation("io.projectreactor:reactor-test")
 	testImplementation("org.springframework.cloud:spring-cloud-stream-test-support")
+	testImplementation("io.projectreactor:reactor-test")
+
+	// Kotlin Test dependencies
+	testImplementation("io.kotlintest:kotlintest-runner-junit5:3.4.2")
+	testImplementation("io.mockk:mockk:1.9.3")
+	testImplementation("com.ninja-squad:springmockk:2.0.0")
 }
 
 dependencyManagement {
@@ -44,6 +57,6 @@ tasks.withType<Test> {
 tasks.withType<KotlinCompile> {
 	kotlinOptions {
 		freeCompilerArgs = listOf("-Xjsr305=strict")
-		jvmTarget = "11"
+		jvmTarget = "1.8"
 	}
 }
