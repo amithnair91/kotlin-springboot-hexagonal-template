@@ -1,6 +1,6 @@
 package com.amithnair.hexagonaltemplate.domain
 
-import com.amithnair.hexagonaltemplate.builders.OrganizationBuilder
+import io.kotlintest.matchers.numerics.shouldBeGreaterThan
 import io.kotlintest.shouldBe
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
@@ -10,7 +10,9 @@ class OrganizationTest {
     @Test
     fun `creates organization with valid inputs`(){
         val organizationName = "Microsoft"
-        Organization(name = organizationName) shouldBe OrganizationBuilder(name = organizationName).build()
+        val organization = Organization(name = organizationName)
+        organization.name shouldBe organizationName
+        organization.id().length shouldBeGreaterThan 0
     }
 
     @Test
